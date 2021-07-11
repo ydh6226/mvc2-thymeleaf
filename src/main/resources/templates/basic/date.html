@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>default = <span th:text="${localDateTime}"></span></h1>
+    <h1>yyyy-MM-dd HH:mm:ss = <span th:text="${#temporals.format(localDateTime, 'yyyy-MM-dd HH:mm:ss')}"></span></h1>
+    <ul>
+        <li>${#temporals.day(localDateTime)} = <span th:text="${#temporals.day(localDateTime)}"></span></li>
+        <li>${#temporals.day(dayOfWeekNameShort)} = <span th:text="${#temporals.dayOfWeekNameShort(localDateTime)}"></span></li>
+        <li>${#temporals.second(localDateTime)} = <span th:text="${#temporals.second(localDateTime)}"></span></li>
+    </ul>
+</body>
+</html>
