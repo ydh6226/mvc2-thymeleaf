@@ -1,6 +1,7 @@
 package com.thymeleaf.basic;
 
 import lombok.Data;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,12 @@ import java.util.Map;
 @Controller
 @RequestMapping("/basic")
 public class BasicController {
+
+    @GetMapping("literal")
+    public String literal(Model model) {
+        model.addAttribute("data", "spring!");
+        return "basic/literal";
+    }
 
     @GetMapping("text-basic")
     public String textBasic(Model model) {
