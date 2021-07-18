@@ -31,16 +31,50 @@ public class BasicController {
         return "basic/text-basic";
     }
 
-    @GetMapping("text-unescaped")
+    @GetMapping("/text-unescaped")
     public String textUnescaped(Model model) {
         model.addAttribute("data", "Hello <b>Spring!!</b>");
         return "basic/text-unescaped";
     }
 
+    @GetMapping("/each")
+    public String each(Model model) {
+        model.addAttribute("data", "Hello <b>Spring!!</b>");
+        addUsers(model);
+        return "basic/each";
+    }
+
+    private void addUsers(Model model) {
+        List<User> users = new ArrayList<>();
+        users.add(new User("userA", 10));
+        users.add(new User("userB", 20));
+        users.add(new User("userC", 30));
+        model.addAttribute("users", users);
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
+    }
+
+
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "basic/date";
+    }
+
+    @GetMapping("/operation")
+    public String operation(Model model) {
+        model.addAttribute("nullData", null);
+        model.addAttribute("data", "spring");
+        return "basic/operation";
+    }
+
+    @GetMapping("/attribute")
+    public String attribute() {
+        return "basic/attribute";
     }
 
     @GetMapping("/link")

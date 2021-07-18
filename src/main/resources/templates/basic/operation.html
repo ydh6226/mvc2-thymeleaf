@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        산술연산
+        <li>10 + 2 <span th:text="10 + 2"></span></li>
+        <li>10 % 2 == 0 <span th:text="10 % 2 == 0"></span></li>
+    </ul>
+    <ul>
+        조건식
+        <li>(10 % 2 == 0)? '짝수' : '홀수'<span th:text="(10 % 2 == 0)? '짝수' : '홀수'"></span></li>
+    </ul>
+    <ul>Elvis연산자(데이터가 있으면 출력 없으면 ? 이후 값 출력)
+        <li>${data}?: '데이터가 없습니다' => <span th:text="${data}?: '데이터가 없습니다'"></span></li>
+        <li>${nullData}?: '데이터가 없습니다' => <span th:text="${nullData}?: '데이터가 없습니다'"></span></li>
+    </ul>
+    <ul>No-Operation
+        <li>${data}?: _ => <span th:text="${data}?: _">데이터가 없습니다.</span></li>
+        <li>${nullData}?: _ => <span th:text="${nullData}?: _">데이터가 없습니다.</span></li><!-- 값 없으면 타임리프 태그 무시하고 기본값(html 내용) 출력 -->
+    </ul>
+</body>
+</html>
