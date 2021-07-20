@@ -31,14 +31,29 @@ public class BasicController {
         return "basic/text-basic";
     }
 
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
+    }
+
     @GetMapping("/text-unescaped")
     public String textUnescaped(Model model) {
+
         model.addAttribute("data", "Hello <b>Spring!!</b>");
         return "basic/text-unescaped";
     }
 
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        model.addAttribute("user", new User("userA", 10));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
     @GetMapping("/each")
     public String each(Model model) {
+
         model.addAttribute("data", "Hello <b>Spring!!</b>");
         addUsers(model);
         return "basic/each";
