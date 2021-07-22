@@ -15,4 +15,15 @@ public class TemplateController {
         model.addAttribute("data2", "하이");
         return "template/fragment/fragmentMain";
     }
+
+    @GetMapping("/layout")
+    public String layout() {
+        return "template/layout/layoutMain";
+    }
+
+    @GetMapping("/layoutExtend")
+    public String layoutExtend() {
+        return "template/layoutExtend/layoutExtendMain";
+    }
+
 }

@@ -18,7 +18,7 @@
 <!-- 자바스크립트 인라인 사용 후 -->
 <script th:inline="javascript">
     let username = [[${user.username}]];
-    let age = [[${user.age}]];
+    let age = [[${user.age}]]; //객체로 변환해서 대입
 
     let username2 = /*[[${user.username}]]*/ "test username";
 
